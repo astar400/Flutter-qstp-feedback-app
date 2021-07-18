@@ -40,7 +40,10 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment:MainAxisAlignment.center,
           children: [
-            Text("Welcome to my feedback app"),
+            Text("Welcome to my feedback app",
+            style: TextStyle(
+              fontSize: 20,
+            ),),
             SizedBox(height: 70.00,),
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -93,12 +96,14 @@ class _QuestionTemplateState extends State<QuestionTemplate> {
         title: Text("Quiz App"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [Text(
-          "${Question_list[this.id-1].text}"
+          "${Question_list[this.id-1].text}",
+          style : TextStyle(fontSize: 20.0),
         ),
-          SizedBox(height: 60,),
+          SizedBox(height: 100,),
           Text("Your Rating : ${this.answer.toInt()}"),
-          SizedBox(height: 60,),
+          // SizedBox(height: 60,),
           Slider(
               value: answer,
               onChanged:(double newanswer){
@@ -112,7 +117,7 @@ class _QuestionTemplateState extends State<QuestionTemplate> {
               inactiveColor: Colors.purple[200*(6-this.answer.toInt())-100],
 
           ),
-          SizedBox(height: 200,),
+          SizedBox(height: 50,),
           ElevatedButton(
             onPressed: (){
             Question_list[this.id-1].answer=answer.toInt();
